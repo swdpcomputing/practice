@@ -8,21 +8,24 @@ class BarChart extends Component {
 
     drawChart = () => {
         const {data, width, height, id} = this.props;
+        const barspace = width / data.length;
+        const barWidth =  barspace * 0.9;
 
         const svg = d3.select('#' + id)
             .append("svg")
             .attr("width", width)
             .attr("height", height)
-            .style("margin-left", 100);
+            .attr("style", "outline: thin solid black;")
+            .style("margin-left", 0)
             
         svg.selectAll("rect")
             .data(data)
             .enter()
             .append("rect")
-            .attr("x", (d, i) => i * 70)
-            .attr("y", (d, i) => height - 10 * d)
-            .attr("width", 50)
-            .attr("height", (d, i) => d * 10)
+            .attr("x", (d, i) => i * barspace)
+            .attr("y", (d, i) => height - (15 * d))
+            .attr("width", barWidth)
+            .attr("height", (d, i) => d * 15)
             .attr("fill", "green");
 
         svg.selectAll("text")
@@ -30,8 +33,8 @@ class BarChart extends Component {
             .enter()
             .append("text")
             .text((d) => d)
-            .attr("x", (d, i) => i * 70)
-            .attr("y", (d, i) => height - (10 * d) - 3);
+            .attr("x", (d, i) => (i * barspace) + 5)
+            .attr("y", (d, i) => height - (15 * d) - 3);
     }
 
     render = () => { 
