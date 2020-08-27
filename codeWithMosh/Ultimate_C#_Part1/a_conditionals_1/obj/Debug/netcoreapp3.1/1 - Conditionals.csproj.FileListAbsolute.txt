@@ -1,0 +1,13 @@
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\obj\Debug\netcoreapp3.1\1 - Conditionals.csprojAssemblyReference.cache
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\obj\Debug\netcoreapp3.1\1 - Conditionals.AssemblyInfoInputs.cache
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\obj\Debug\netcoreapp3.1\1 - Conditionals.AssemblyInfo.cs
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\obj\Debug\netcoreapp3.1\1 - Conditionals.csproj.CoreCompileInputs.cache
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\bin\Debug\netcoreapp3.1\1 - Conditionals.exe
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\bin\Debug\netcoreapp3.1\1 - Conditionals.deps.json
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\bin\Debug\netcoreapp3.1\1 - Conditionals.runtimeconfig.json
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\bin\Debug\netcoreapp3.1\1 - Conditionals.runtimeconfig.dev.json
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\bin\Debug\netcoreapp3.1\1 - Conditionals.dll
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\bin\Debug\netcoreapp3.1\1 - Conditionals.pdb
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\obj\Debug\netcoreapp3.1\1 - Conditionals.dll
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\obj\Debug\netcoreapp3.1\1 - Conditionals.pdb
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\1 - Conditionals\obj\Debug\netcoreapp3.1\1 - Conditionals.genruntimeconfig.cache

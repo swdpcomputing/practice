@@ -1,0 +1,12 @@
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\obj\Debug\netcoreapp3.1\a_conditionals_4.AssemblyInfoInputs.cache
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\obj\Debug\netcoreapp3.1\a_conditionals_4.AssemblyInfo.cs
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\obj\Debug\netcoreapp3.1\a_conditionals_4.csproj.CoreCompileInputs.cache
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\bin\Debug\netcoreapp3.1\a_conditionals_4.exe
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\bin\Debug\netcoreapp3.1\a_conditionals_4.deps.json
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\bin\Debug\netcoreapp3.1\a_conditionals_4.runtimeconfig.json
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\bin\Debug\netcoreapp3.1\a_conditionals_4.runtimeconfig.dev.json
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\bin\Debug\netcoreapp3.1\a_conditionals_4.dll
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\bin\Debug\netcoreapp3.1\a_conditionals_4.pdb
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\obj\Debug\netcoreapp3.1\a_conditionals_4.dll
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\obj\Debug\netcoreapp3.1\a_conditionals_4.pdb
+C:\Users\Stephen Powell\OneDrive\Computing\code\practice\codeWithMosh\Ultimate_C#_Part1\a_conditionals_4\obj\Debug\netcoreapp3.1\a_conditionals_4.genruntimeconfig.cache
