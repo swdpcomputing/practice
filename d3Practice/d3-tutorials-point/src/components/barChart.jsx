@@ -7,9 +7,9 @@ class BarChart extends Component {
     }
 
     drawChart = () => {
-        const {data, width, height} = this.props;
+        const {data, width, height, id} = this.props;
 
-        const svg = d3.select('body')
+        const svg = d3.select('#' + id)
             .append("svg")
             .attr("width", width)
             .attr("height", height)
@@ -36,7 +36,6 @@ class BarChart extends Component {
 
     render = () => { 
         return (
-            //<svg id={this.props.id}></svg> // Difference... margins & padding?
             <div id={this.props.id}></div>
         );
     }
