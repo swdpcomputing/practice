@@ -7,7 +7,7 @@ class BarChart extends Component {
     }
 
     drawChart = () => {
-        const {data, width, height, color, id} = this.props;
+        const {data, width, height, color, bgcolor, id} = this.props;
         const barspace = width / data.length;
         const barWidth =  barspace * 0.9;
 
@@ -15,6 +15,7 @@ class BarChart extends Component {
             .append("svg")
             .attr("width", width)
             .attr("height", height)
+            .attr("fill", bgcolor)
             .attr("style", "outline: thin solid black;")
             .style("margin-left", 0)
             
@@ -26,7 +27,7 @@ class BarChart extends Component {
             .attr("y", (d, i) => height - (15 * d))
             .attr("width", barWidth)
             .attr("height", (d, i) => d * 15)
-            .attr("fill", color);
+            .attr("fill", color)
 
         svg.selectAll("text")
             .data(data)
@@ -34,7 +35,7 @@ class BarChart extends Component {
             .append("text")
             .text((d) => d)
             .attr("x", (d, i) => (i * barspace) + 5)
-            .attr("y", (d, i) => height - (15 * d) - 3);
+            .attr("y", (d, i) => height - (15 * d) - 3)
     }
 
     render = () => { 
