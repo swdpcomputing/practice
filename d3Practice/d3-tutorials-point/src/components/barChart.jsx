@@ -7,7 +7,7 @@ class BarChart extends Component {
     }
 
     drawChart = () => {
-        const {data, width, height, id} = this.props;
+        const {data, width, height, color, id} = this.props;
         const barspace = width / data.length;
         const barWidth =  barspace * 0.9;
 
@@ -26,7 +26,7 @@ class BarChart extends Component {
             .attr("y", (d, i) => height - (15 * d))
             .attr("width", barWidth)
             .attr("height", (d, i) => d * 15)
-            .attr("fill", "green");
+            .attr("fill", color);
 
         svg.selectAll("text")
             .data(data)
