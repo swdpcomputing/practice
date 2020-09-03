@@ -22,6 +22,8 @@ class TableHeader extends Component {
   };
 
   render() {
+    this.props.columns.map((column) => (console.log(column.path, column.key, column.path || column.key)))
+    console.log('')
     return (
       <thead>
         <tr>
