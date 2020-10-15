@@ -1,0 +1,9 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+  "python.linting.pylintPath": "/path/to/virtualenv/bin/pylint",
+  "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+  "python.linting.pylintEnabled": true,
+  "python.linting.banditEnabled": false,
+  "python.linting.flake8Enabled": true
+}
