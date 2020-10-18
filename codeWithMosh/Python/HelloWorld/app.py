@@ -168,8 +168,31 @@ for x in point.items():
 for key, value in point.items():
     print(x)  # Same as line 162-163 - x 1
 
-# Dicitonary comprehensions
+# Dictionary comprehensions
 values = {x * 2 for x in range(5)}  # {0, 2, 4, 6, 8}
 values = {x: x * 2 for x in range(5)}  # {0: 0, 1: 2, 2: 4, 3: 6, 4: 8}
 
 # Generator expressions
+# Use for large or infinite data sets
+# Size of generator object remains consistent despite values held
+# You only access items when you iterate over them
+values = (x * 2 for x in range(5))
+
+# Unpacking operator
+numbers = [1, 2, 3]
+print(*numbers)  # prints 1 2 3 not [1, 2, 3]
+# Use to unpack any iterable
+print(*"Hello")  # 'H', 'e', 'l', 'l', 'o'
+values = [*numbers, "a", *numbers, *"Hello"]  # Unpacks and combines
+
+# Unpacking dictionary
+first = {"x": 1}
+second = {"x": 10, "y": 2}
+combined = {**first, **second, "z": 1}  # {'x': 10, 'y': 2, 'z': 1}
+
+# Exercise - Find the most common character in this string
+sentence = "This is a common interview question"
+
+
+
+
