@@ -1,20 +1,3 @@
-students_count = 1000
-rating = 4.99
-is_published = False
-course_name = """
-Multiple
-Lines"""
-
-x: int = 1
-y = 1
-x, y = 1, 2
-
-first = "Steve"
-last = "Powell"
-name = f"{first} {last}"
-
-print(name)
-
 matrix = [[0, 1], [2, 3]]
 zeros = [0] * 100
 numbers = list(range(20))
@@ -192,7 +175,4 @@ combined = {**first, **second, "z": 1}  # {'x': 10, 'y': 2, 'z': 1}
 
 # Exercise - Find the most common character in this string
 sentence = "This is a common interview question"
-
-
-
 
