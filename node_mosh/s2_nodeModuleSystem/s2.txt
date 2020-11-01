@@ -1,0 +1,108 @@
+// -----Global Object
+
+setTimeout() = call a func after a delay
+clearTimeout() = stop timeout
+
+setInterval() = Repeatedly call function
+clearInterval() = Sstop interval calling
+
+We have global object, not the window object
+If you declare variables, they are not added to the global object
+
+
+// -----Modules
+
+Avoid defining variables and functions in the global space
+app.js (or the main file) is the main module
+module is not global
+
+
+// -----Creating a module
+
+module.exports.log = log; // To export function called log
+module.exports.logger = log; // Export log as different name
+module.exports = log; // Export single function
+
+
+// -----Loading a module
+
+const logger = require('./logger') // if in same directory
+const logger = require('../logger') // if in directory above
+
+console.log(logger)
+
+If single export (see line 24):
+
+const log = require = require('./logger')
+log('message')
+
+
+// -----Module Wrapper Function
+
+Code is converted to a function
+This is called the Module Wrapper Function
+
+// -----Path module
+
+nodejs.org/docs/version/ 
+File system
+HTTP
+OS
+Path
+Process
+Query Strings
+Stream
+
+const path = require('path');
+var pathObj = path.parse(__filename);
+console.log(pathObj) // Gives info about the file
+
+// -----OS Module
+
+const os = require('os');
+var totalMemory = os.totalmem();
+var freeMemory = os.freemem();
+
+console.log('Total Memory: ' + totalMemory);
+
+// Template String
+// ES6 / ES2015 : ECMAScript 6
+
+console.log(`Free Memory${freeMemory}`); // Template String
+
+// -----File System Module
+
+const fs = require('fs');
+
+const files = fs.readdirSync('/') // Returns all files in folder - Synchronous
+fs.readdir('./, function(err, files) {
+    if (err) console.log('Error', err);
+    else console.log('Result', files);
+}) / Asynchronous - Prefer This
+
+
+//----- Events Module
+
+const EventEmitter = require('events'); // Capital letter as this is a class
+const emitter = new EventEmitter(); // Instance of class
+
+emitter.on('messageLogged', () => {
+    console.log('Listener called')
+}) // Listen to event. on is same as addListener
+
+emitter.emit('messageLogged'); // Raise event
+
+
+//----- Event Argument
+
+emitter.on('messageLogged', (arg) => {
+    console.log('Listener called', arg)
+})  // sends arguments
+
+emitter.emit('messageLogged', {id: 1, url: 'url'}); // extra arguments
+
+
+//----- Extending EventEmitter
+
+
+// HTTP Module
