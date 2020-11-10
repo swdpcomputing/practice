@@ -1,8 +1,30 @@
-const Joi = require('joi');
+const config = require('config');
 const express = require('express');
-
+const Joi = require('joi');
+const morgan = require('morgan');
+const logger = require('./logger');
+const authenticator = require('./authenticator');
 const app = express();
-app.use(express.json()) // adding middleware
+
+app.use(express.json()); // populates req.body
+app.use(express.urlencoded({ extended: true})); // See urlencoded in Postman key=value&key=value
+app.use(express.static('public')); // static file test
+
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
+console.log(`app: ${app.get('env')}`);
+
+console.log('Application Name: ' + config.get('name'));
+console.log('Mail Server: ' + config.get('mail.host'));
+
+// Only works in bash: NODE_ENV=production nodemon app.js
+if (app.get('env') === 'development') {
+    app.use(morgan('tiny'));
+    console.log('Morgan enabled...');
+}
+
+app.use(morgan('tiny'));
+app.use(logger);
+app.use(authenticator);
 
 const courses = [
     {id: 1, name: 'course1'},
