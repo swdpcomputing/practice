@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "debug": "^4.2.0",
     "express": "^4.17.1",
     "joi": "^17.3.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6"
   },
-  "devDependencies": {
-    "cross-env": "^7.0.2"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon app.js"
+    "dev": "set DEBUG=debug:main,debug:startup&&set NODE_ENV=development&&nodemon app.js",
+    "prod": "set NODE_ENV=production&&nodemon app.js",
+
+    "toRunMultipleDebuggers": "set DEBUG=app:startup,app:db",
+    "toRunAllDebuggers": "set DEBUG=app:*"
   }
 }
