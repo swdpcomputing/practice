@@ -10,13 +10,13 @@
     "express": "^4.17.1",
     "joi": "^17.3.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "pug": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {
     "dev": "set DEBUG=debug:main,debug:startup&&set NODE_ENV=development&&nodemon app.js",
     "prod": "set NODE_ENV=production&&nodemon app.js",
-
     "toRunMultipleDebuggers": "set DEBUG=app:startup,app:db",
     "toRunAllDebuggers": "set DEBUG=app:*"
   }

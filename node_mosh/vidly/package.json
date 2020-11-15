@@ -1,16 +1,22 @@
 {
-  "name": "vidly",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "joi": "^17.3.0",
-    "nodemon": "^2.0.6"
-  }
+    "name": "vidly",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "joi": "^17.3.0",
+        "nodemon": "^2.0.6"
+    },
+    "scripts": {
+        "dev": "set NODE_ENV=development&&nodemon app.js",
+        "prod": "set NODE_ENV=production&&nodemon app.js",
+        "toRunMultipleDebuggers": "set DEBUG=app:startup,app:db",
+        "toRunAllDebuggers": "set DEBUG=app:*"
+    }
 }
