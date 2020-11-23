@@ -9,12 +9,26 @@ console.log("Before");
 // });
 // console.log("After");
 
-getUser(1)
-    .then((user) => getRepositories(user.gitHubUsername))
-    .then((repos) => getCommits(repos[0]))
-    .then((commits) => console.log('Commits', commits))
-    .catch(err => console.log('Error', err.messsage));
+// Promise based await approach
+// getUser(1)
+//     .then((user) => getRepositories(user.gitHubUsername))
+//     .then((repos) => getCommits(repos[0]))
+//     .then((commits) => console.log("Commits", commits))
+//     .catch((err) => console.log("Error", err.messsage));
 
+// Async and await approach
+async function displayCommits() {
+    try {
+        const user = await getUser(1);
+        const repos = await getRepositories(user.gitHubUsername);
+        const commits = await getCommits(repos[0]);
+        console.log(commits);
+    } catch (error) {
+        console.log("Error", error.message);
+    }
+};
+
+displayCommits();
 
 function getUser(id) {
     return new Promise((res, rej) => {
