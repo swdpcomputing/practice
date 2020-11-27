@@ -32,8 +32,28 @@ async function createCourse() {
 
 async function getCourses() {
     // const courses = await Course.find(); // All
+    const courses = await Course.find({ author: "Mosh" }) // Filtered
+        .limit(10) // Limit return num
+        .sort({ name: 1 }) // Sort
+        .select({ name: 1, tags: 1 }); // What gets returned
+    console.log(courses);
+}
+
+// Comparison Query Operators
+// eq - equal
+// ne - not equal
+// gt - greater than
+// gte - greater than or equal to
+// lt - less than
+// lte - less than or equal to
+// in
+// nin - not in
+
+async function getCoursesComparison() {
+    // const courses = await Course.find(); // All
     const courses = await Course
-        .find({ author: "Mosh" }) // Filtered
+        //.find({ price: { $gte: 10, $lte: 20 } }) // Filtered price  > 10 and < 20
+        .find({ price: { $in: [10, 15, 20] } }) // Price is 10, 15 or 20
         .limit(10) // Limit return num
         .sort({ name: 1 }) // Sort
         .select({ name: 1, tags: 1 }); // What gets returned
