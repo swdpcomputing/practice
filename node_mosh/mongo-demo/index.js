@@ -30,6 +30,7 @@ async function createCourse() {
     console.log(result);
 }
 
+// Filtering
 async function getCourses() {
     // const courses = await Course.find(); // All
     const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
@@ -69,6 +70,21 @@ async function getCourses() {
         .find()
         .or([{ author: "Mosh" }, { isPublished: true }])
         .and([{ author: "Mosh" }, { isPublished: true }])
+        .limit(10) // Limit return num
+        .sort({ name: 1 }) // Sort
+        .select({ name: 1, tags: 1 }); // What gets returned
+    console.log(courses);
+}
+
+// Regular Expressions
+async function getCourses() {
+    const courses = await Course
+        //.find({ author: "Mosh", isPublished: true })
+
+        .find({ author: /^Mosh/}) // Regex - Starts with Mosh
+        .find({ author: /Hamedani$/}) // Regex - Ends with Hamedani
+        .find({ author: /Hamedani$/i}) // Case insenstive
+        .find({ author: /.*Mosh.*/ }) // Regex - Contains
         .limit(10) // Limit return num
         .sort({ name: 1 }) // Sort
         .select({ name: 1, tags: 1 }); // What gets returned
