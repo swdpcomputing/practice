@@ -32,7 +32,7 @@ async function createCourse() {
 
 async function getCourses() {
     // const courses = await Course.find(); // All
-    const courses = await Course.find({ author: "Mosh" }) // Filtered
+    const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
         .limit(10) // Limit return num
         .sort({ name: 1 }) // Sort
         .select({ name: 1, tags: 1 }); // What gets returned
@@ -50,7 +50,6 @@ async function getCourses() {
 // nin - not in
 
 async function getCoursesComparison() {
-    // const courses = await Course.find(); // All
     const courses = await Course
         //.find({ price: { $gte: 10, $lte: 20 } }) // Filtered price  > 10 and < 20
         .find({ price: { $in: [10, 15, 20] } }) // Price is 10, 15 or 20
@@ -60,4 +59,18 @@ async function getCoursesComparison() {
     console.log(courses);
 }
 
-getCourses();
+// Query Operators
+// or
+// and
+
+async function getCourses() {
+    const courses = await Course
+        // .find({ author: "Mosh", isPublished: true }) // Filtered
+        .find()
+        .or([{ author: "Mosh" }, { isPublished: true }])
+        .and([{ author: "Mosh" }, { isPublished: true }])
+        .limit(10) // Limit return num
+        .sort({ name: 1 }) // Sort
+        .select({ name: 1, tags: 1 }); // What gets returned
+    console.log(courses);
+}
