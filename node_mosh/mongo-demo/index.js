@@ -31,7 +31,7 @@ async function createCourse() {
 }
 
 // Filtering
-async function getCourses() {
+async function getCoursesFiltered() {
     // const courses = await Course.find(); // All
     const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
         .limit(10) // Limit return num
@@ -64,7 +64,7 @@ async function getCoursesComparison() {
 // or
 // and
 
-async function getCourses() {
+async function getCoursesQueried() {
     const courses = await Course
         // .find({ author: "Mosh", isPublished: true }) // Filtered
         .find()
@@ -77,16 +77,28 @@ async function getCourses() {
 }
 
 // Regular Expressions
-async function getCourses() {
+async function getCoursesRegex() {
     const courses = await Course
         //.find({ author: "Mosh", isPublished: true })
 
-        .find({ author: /^Mosh/}) // Regex - Starts with Mosh
-        .find({ author: /Hamedani$/}) // Regex - Ends with Hamedani
-        .find({ author: /Hamedani$/i}) // Case insenstive
+        .find({ author: /^Mosh/ }) // Regex - Starts with Mosh
+        .find({ author: /Hamedani$/ }) // Regex - Ends with Hamedani
+        .find({ author: /Hamedani$/i }) // Case insenstive
         .find({ author: /.*Mosh.*/ }) // Regex - Contains
         .limit(10) // Limit return num
         .sort({ name: 1 }) // Sort
         .select({ name: 1, tags: 1 }); // What gets returned
     console.log(courses);
 }
+
+// Counting
+async function getCoursesCount() {
+    // const courses = await Course.find(); // All
+    const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
+        .limit(10) // Limit return num
+        .sort({ name: 1 }) // Sort
+        .count(); // returns number of entries
+    console.log(courses);
+}
+
+getCoursesCount();
