@@ -18,6 +18,7 @@ const courseSchema = new mongoose.Schema({
 
 const Course = mongoose.model("Course", courseSchema);
 
+// Create a course
 async function createCourse() {
     const course = new Course({
         name: "Angular Course",
@@ -54,9 +55,9 @@ async function getCoursesComparison() {
     const courses = await Course
         //.find({ price: { $gte: 10, $lte: 20 } }) // Filtered price  > 10 and < 20
         .find({ price: { $in: [10, 15, 20] } }) // Price is 10, 15 or 20
-        .limit(10) // Limit return num
-        .sort({ name: 1 }) // Sort
-        .select({ name: 1, tags: 1 }); // What gets returned
+        .limit(10) 
+        .sort({ name: 1 })
+        .select({ name: 1, tags: 1 });
     console.log(courses);
 }
 
@@ -70,8 +71,8 @@ async function getCoursesQueried() {
         .find()
         .or([{ author: "Mosh" }, { isPublished: true }])
         .and([{ author: "Mosh" }, { isPublished: true }])
-        .limit(10) // Limit return num
-        .sort({ name: 1 }) // Sort
+        .limit(10) 
+        .sort({ name: 1 }) 
         .select({ name: 1, tags: 1 }); // What gets returned
     console.log(courses);
 }
@@ -85,20 +86,30 @@ async function getCoursesRegex() {
         .find({ author: /Hamedani$/ }) // Regex - Ends with Hamedani
         .find({ author: /Hamedani$/i }) // Case insenstive
         .find({ author: /.*Mosh.*/ }) // Regex - Contains
-        .limit(10) // Limit return num
-        .sort({ name: 1 }) // Sort
-        .select({ name: 1, tags: 1 }); // What gets returned
+        .limit(10)
+        .sort({ name: 1 })
+        .select({ name: 1, tags: 1 }); 
     console.log(courses);
 }
 
 // Counting
 async function getCoursesCount() {
-    // const courses = await Course.find(); // All
     const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
-        .limit(10) // Limit return num
-        .sort({ name: 1 }) // Sort
-        .count(); // returns number of entries
+        .limit(10) 
+        .sort({ name: 1 }) 
+        .count();
     console.log(courses);
 }
 
-getCoursesCount();
+// Pagination
+async function getCoursesFiltered() {
+    const pageNumber = 2;
+    const pageSize = 10;
+
+    const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
+        .skip((pageNumber - 1) * pageSize)
+        .limit(pageSize) 
+        .sort({ name: 1 }) 
+        .select({ name: 1, tags: 1 });
+    console.log(courses);
+}
