@@ -9,7 +9,7 @@ mongoose
     .catch((err) => console.error("Could not connect to MongoDB", err));
 
 const courseSchema = new mongoose.Schema({
-    name: String,
+    name: { type: String, required: true },
     author: String,
     tags: [String],
     date: { type: Date, default: Date.now },
@@ -27,8 +27,12 @@ async function createCourse() {
         isPublished: true,
     });
 
-    const result = await course.save();
-    console.log(result);
+    try {
+        const result = await course.save();
+        console.log(result);
+    } catch (exc) {
+        console.log(exc);
+    }
 }
 
 // Filtering
@@ -166,7 +170,7 @@ async function updateCourseUpdateFirstReturnObject(id) {
 // Removing documents
 async function removeCourse(id) {
     //Course.deleteOne({ isPublished: false }); // Finds and deletes first instance
-    const result = await Course.deleteOne({ _id: id }); 
+    const result = await Course.deleteOne({ _id: id });
     // or deleteMany
     // or findByIdAndRemove
     console.log(result);
