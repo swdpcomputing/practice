@@ -24,11 +24,18 @@ const courseSchema = new mongoose.Schema({
     tags: {
         type: Array,
         validate: {
-            validator: function (v) {
-                return v && v.length > 0; // If v has a value an has a length
+            // Doesn't need to be async of immediate result
+            isAsync: true,
+            validator: function (v, callback) {
+                setTimeout(() => {
+                    // Do some async work
+                    // If v has a value an has a length
+                    const result = v && v.length > 0;
+                    callback (result);
+                }, 4000);
             },
             message: "A course should have at least one tag",
-        },
+        }
     },
     date: { type: Date, default: Date.now },
     isPublished: Boolean,
