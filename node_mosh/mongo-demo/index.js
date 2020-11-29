@@ -116,7 +116,6 @@ async function getCoursesFiltered() {
 
 // Updating a doucment, query first
 async function updateCourseQueryFirst(id) {
-    // Query first approach
     const course = await Course.findById(id);
     if (!course) return;
 
@@ -134,10 +133,34 @@ async function updateCourseQueryFirst(id) {
     console.log(result);
 }
 
-updateCourseQueryFirst('5fbebe35b9fc3a03e833e854');
-
-async function updateCourseUpdateFirst(id) {
-    // Update first approach
-    // Update directly
-    // Optionally: get the updated document
+// Updating a document, update first, return result
+async function updateCourseUpdateFirstReturnResult(id) {
+    const result = await Course.update(
+        { _id: id },
+        {
+            // MongoDB Update Operators
+            $set: {
+                author: "Mosh",
+                isPublished: false,
+            },
+        }
+    );
+    console.log(result);
 }
+
+// Updating a document, update first, return object
+async function updateCourseUpdateFirstReturnObject(id) {
+    const course = await Course.findByIdAndUpdate(
+        id,
+        {
+            $set: {
+                author: "Jack",
+                isPublished: true,
+            },
+        },
+        { new: true } // this dictates returning the old or new object
+    );
+    console.log(course);
+}
+
+updateCourseUpdateFirstReturnObject("5fbebe35b9fc3a03e833e854");
