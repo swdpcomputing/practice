@@ -163,4 +163,13 @@ async function updateCourseUpdateFirstReturnObject(id) {
     console.log(course);
 }
 
-updateCourseUpdateFirstReturnObject("5fbebe35b9fc3a03e833e854");
+// Removing documents
+async function removeCourse(id) {
+    //Course.deleteOne({ isPublished: false }); // Finds and deletes first instance
+    const result = await Course.deleteOne({ _id: id }); 
+    // or deleteMany
+    // or findByIdAndRemove
+    console.log(result);
+}
+
+removeCourse("5fbebe35b9fc3a03e833e854");
