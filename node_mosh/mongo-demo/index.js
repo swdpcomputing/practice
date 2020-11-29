@@ -12,23 +12,31 @@ const courseSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        minLengt: 5,
+        minLength: 5,
         maxLength: 255,
     },
     category: {
         type: String,
         required: true,
-        enum: ["web", "mobile", "network"],
+        enum: ["web", "mobile", "network"], // validates has to be one
     },
     author: String,
-    tags: [String],
+    tags: {
+        type: Array,
+        validate: {
+            validator: function (v) {
+                return v && v.length > 0; // If v has a value an has a length
+            },
+            message: "A course should have at least one tag",
+        },
+    },
     date: { type: Date, default: Date.now },
     isPublished: Boolean,
     price: {
         type: Number,
         required: function () {
             // can't use arrow syntax
-            return this.isPublished;
+            return this.isPublished; // validatation required only if published
         },
         min: 10,
         max: 200,
@@ -43,7 +51,7 @@ async function createCourse() {
         name: "Angular Course",
         category: "web",
         author: "Mosh",
-        tags: ["angular", "frontend"],
+        tags: ['popular'],
         isPublished: true,
         price: 15,
     });
@@ -55,6 +63,8 @@ async function createCourse() {
         console.log(exc);
     }
 }
+
+createCourse();
 
 // Filtering
 async function getCoursesFiltered() {
@@ -196,5 +206,3 @@ async function removeCourse(id) {
     // or findByIdAndRemove
     console.log(result);
 }
-
-removeCourse("5fbebe35b9fc3a03e833e854");
