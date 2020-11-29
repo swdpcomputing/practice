@@ -31,11 +31,11 @@ const courseSchema = new mongoose.Schema({
                     // Do some async work
                     // If v has a value an has a length
                     const result = v && v.length > 0;
-                    callback (result);
+                    callback(result);
                 }, 4000);
             },
             message: "A course should have at least one tag",
-        }
+        },
     },
     date: { type: Date, default: Date.now },
     isPublished: Boolean,
@@ -58,7 +58,7 @@ async function createCourse() {
         name: "Angular Course",
         category: "web",
         author: "Mosh",
-        tags: ['popular'],
+        tags: ["popular"],
         isPublished: true,
         price: 15,
     });
@@ -66,8 +66,8 @@ async function createCourse() {
     try {
         const result = await course.save();
         console.log(result);
-    } catch (exc) {
-        console.log(exc);
+    } catch (ex) {
+        for (field in ex.errors) console.log(ex.errors[field]);
     }
 }
 
