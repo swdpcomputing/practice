@@ -55,7 +55,7 @@ async function getCoursesComparison() {
     const courses = await Course
         //.find({ price: { $gte: 10, $lte: 20 } }) // Filtered price  > 10 and < 20
         .find({ price: { $in: [10, 15, 20] } }) // Price is 10, 15 or 20
-        .limit(10) 
+        .limit(10)
         .sort({ name: 1 })
         .select({ name: 1, tags: 1 });
     console.log(courses);
@@ -71,8 +71,8 @@ async function getCoursesQueried() {
         .find()
         .or([{ author: "Mosh" }, { isPublished: true }])
         .and([{ author: "Mosh" }, { isPublished: true }])
-        .limit(10) 
-        .sort({ name: 1 }) 
+        .limit(10)
+        .sort({ name: 1 })
         .select({ name: 1, tags: 1 }); // What gets returned
     console.log(courses);
 }
@@ -88,15 +88,15 @@ async function getCoursesRegex() {
         .find({ author: /.*Mosh.*/ }) // Regex - Contains
         .limit(10)
         .sort({ name: 1 })
-        .select({ name: 1, tags: 1 }); 
+        .select({ name: 1, tags: 1 });
     console.log(courses);
 }
 
 // Counting
 async function getCoursesCount() {
     const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
-        .limit(10) 
-        .sort({ name: 1 }) 
+        .limit(10)
+        .sort({ name: 1 })
         .count();
     console.log(courses);
 }
@@ -108,8 +108,36 @@ async function getCoursesFiltered() {
 
     const courses = await Course.find({ author: "Mosh", isPublished: true }) // Filtered
         .skip((pageNumber - 1) * pageSize)
-        .limit(pageSize) 
-        .sort({ name: 1 }) 
+        .limit(pageSize)
+        .sort({ name: 1 })
         .select({ name: 1, tags: 1 });
     console.log(courses);
+}
+
+// Updating a doucment, query first
+async function updateCourseQueryFirst(id) {
+    // Query first approach
+    const course = await Course.findById(id);
+    if (!course) return;
+
+    //Option  1
+    course.isPublished = true;
+    course.author = "Another Author";
+
+    // Option 2
+    // course.set({
+    //     isPublished: true,
+    //     author: "Another Author",
+    // });
+
+    const result = await course.save();
+    console.log(result);
+}
+
+updateCourseQueryFirst('5fbebe35b9fc3a03e833e854');
+
+async function updateCourseUpdateFirst(id) {
+    // Update first approach
+    // Update directly
+    // Optionally: get the updated document
 }
