@@ -4,19 +4,17 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "dev": "set NODE_ENV=development&&nodemon app.js",
+        "prod": "set NODE_ENV=production&&nodemon app.js",
+        "toRunMultipleDebuggers": "set DEBUG=app:startup,app:db",
+        "toRunAllDebuggers": "set DEBUG=app:*"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
         "joi": "^17.3.0",
+        "mongoose": "^5.11.1",
         "nodemon": "^2.0.6"
-    },
-    "scripts": {
-        "dev": "set NODE_ENV=development&&nodemon app.js",
-        "prod": "set NODE_ENV=production&&nodemon app.js",
-        "toRunMultipleDebuggers": "set DEBUG=app:startup,app:db",
-        "toRunAllDebuggers": "set DEBUG=app:*"
     }
 }
