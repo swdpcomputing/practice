@@ -21,11 +21,26 @@ const Course = mongoose.model(
     "Course",
     new mongoose.Schema({
         name: String,
-        // author: authorSchema, // without validation
+        author: authorSchema,
+    })
+);
+
+const CourseWithValidation = mongoose.model(
+    "Course",
+    new mongoose.Schema({
+        name: String,
         author: {
             type: authorScheme,
             required: true,
         },
+    })
+);
+
+const CourseWithMultipleAuthors = mongoose.model(
+    "Course",
+    new mongoose.Schema({
+        name: String,
+        authors: [authorSchema],
     })
 );
 
@@ -39,16 +54,54 @@ async function createCourse(name, author) {
     console.log(result);
 }
 
+// createCourse("Node Course", new Author({ name: "Mosh" }));
+
+async function createCourseWithMulipleAuthors(name, authors) {
+    const course = new CourseWithMultipleAuthors({
+        name,
+        authors,
+    });
+
+    const result = await course.save();
+    console.log(result);
+}
+
+// createCourseWithMulipleAuthors("Node Course", [
+//     new Author({ name: "Mosh" }),
+//     new Author({ name: "John" }),
+// ]);
+
 async function listCourses() {
     const courses = await Course.find();
     console.log(courses);
 }
+
+// listCourses()
+
+async function addAuthor(courseId, author) {
+    const course = await Course.findById(courseId);
+    course.authors.push(author);
+    course.save();
+}
+
+// addAuthor("_id", new Author({ name: "Amy" }));
+
+async function removeAuthor(courseId, authorId) {
+    const course = await Course.findById(courseId);
+    const author = course.authors.id(authorId);
+    author.remove;
+    course.save();
+}
+
+// removeAuthor("_id");
 
 async function updateAuthor(courseId) {
     const course = await Course.findById(courseId);
     course.author.name = "Mosh Hamedani";
     course.save();
 }
+
+// updateAuthor("_id");
 
 async function updateAuthorV2(courseId) {
     const course = await Course.updateOne(
@@ -60,6 +113,8 @@ async function updateAuthorV2(courseId) {
         }
     );
 }
+
+// updateAuthorV2("_id");
 
 async function removeSubdocument(courseId) {
     const course = await Course.updateOne(
@@ -73,7 +128,4 @@ async function removeSubdocument(courseId) {
     );
 }
 
-// createCourse("Node Course", new Author({ name: "Mosh" }));
-// updateAuthor("5fd9132fe58135386c579920");
-// updateAuthorV2("5fd9132fe58135386c579920");
-removeSubdocument("5fd9132fe58135386c579920");
+removeSubdocument("_id");
