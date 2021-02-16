@@ -61,7 +61,7 @@ describe("getProduct", () => {
 
 describe("registerUser", () => {
     it("should throw if username is falsy", () => {
-        const args = [nu1ll, undefined, NaN, "", 0, false];
+        const args = [null, undefined, NaN, "", 0, false];
         args.forEach((a) => {
             expect(() => {
                 lib.registerUser(a);
